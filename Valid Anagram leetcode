@@ -1,0 +1,35 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        
+      HashMap<Character,Integer> map=new HashMap<>(); //map made for containing letter with their freq
+        
+      for(int i=0;i<s.length();i++)
+      {
+          char ch1=s.charAt(i);
+          map.put(ch1,map.getOrDefault(ch1,0)+1); //+1 increases the freq of word encountered , getOrDefault function retrun the value of ch1 in map and if ch1 is not present in the map it will return 0 by default as mentioned in code 
+      }
+        
+          for(int i=0;i<t.length();i++)  //this loop will reomve and decrease the freq of word encountered in "t"
+      {
+          char ch2=t.charAt(i);
+          
+          if(map.containsKey(ch2)!=true) //if word is not in map
+          {
+              return false; 
+          }
+              
+          else if(map.get(ch2)==1) //if word(key) is in map and have freq(value) 1 it will be removed after encounter
+          {
+              map.remove(ch2);
+          }
+              
+          else{
+              
+              map.put(ch2,map.get(ch2)-1); //if word is having freq more than 1 then its freq is decreased and updated
+          }    
+              
+      }
+        
+        return map.size()==0; //after decreasing freq and removing word if size of map become 0 then true is returned
+    }
+}
