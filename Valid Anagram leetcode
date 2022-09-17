@@ -1,19 +1,20 @@
-class Solution {
-    public boolean isAnagram(String s, String t) {
+
+    isAnagram(String s, String t) {
         
-      HashMap<Character,Integer> map=new HashMap<>(); //map made for containing letter with their freq
+     const map = new Map();; //map made for containing letter with their freq
         
-      for(int i=0;i<s.length();i++)
+      for(int i=0;i<s.length;i++)
       {
           char ch1=s.charAt(i);
-          map.put(ch1,map.getOrDefault(ch1,0)+1); //+1 increases the freq of word encountered , getOrDefault function retrun the value of ch1 in map and if ch1 is not present in the map it will return 0 by default as mentioned in code 
+          
+          map.set(ch1,map.get(ch1))+1); //+1 increases the freq of word encountered , 
       }
         
-          for(int i=0;i<t.length();i++)  //this loop will reomve and decrease the freq of word encountered in "t"
+          for(int i=0;i<t.length;i++)  //this loop will reomve and decrease the freq of word encountered in "t"
       {
           char ch2=t.charAt(i);
           
-          if(map.containsKey(ch2)!=true) //if word is not in map
+          if(map.has(key)  !=true) //if word is not in map
           {
               return false; 
           }
@@ -30,6 +31,6 @@ class Solution {
               
       }
         
-        return map.size()==0; //after decreasing freq and removing word if size of map become 0 then true is returned
+        return map.size==0; //after decreasing freq and removing word if size of map become 0 then true is returned
     }
 }
